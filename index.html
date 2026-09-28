@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHITCOIN — $SHIT</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  color: #f5f5f7;
+  background:
+    radial-gradient(circle at 15% 0%, #3b173b 0, transparent 32%),
+    radial-gradient(circle at 90% 10%, #173b27 0, transparent 30%),
+    #08090c;
+}
+
+/* HEADER */
+
+header {
+  height: 72px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #24252d;
+  background: rgba(8,9,12,.9);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 1000;
+  letter-spacing: -1.5px;
+}
+
+.logo span {
+  color: #72e06a;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: #858998;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.wallet {
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 18px;
+  background: #72e06a;
+  color: #081008;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* TICKER */
+
+.ticker {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 11px 0;
+  border-bottom: 1px solid #1d2027;
+  background: #0c0e12;
+  color: #969baa;
+  font-size: 12px;
+}
+
+.ticker span {
+  margin: 0 28px;
+}
+
+.up {
+  color: #6de36a;
+}
+
+.down {
+  color: #ff6262;
+}
+
+/* MAIN */
+
+main {
+  max-width: 1180px;
+  margin: auto;
+  padding: 55px 24px;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 30px 0 55px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #171a19;
+  border: 1px solid #29372b;
+  color: #73df6d;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  margin: 20px 0 0;
+  font-size: clamp(55px, 9vw, 105px);
+  line-height: .85;
+  letter-spacing: -7px;
+  font-weight: 1000;
+}
+
+.hero h1 span {
+  color: #72e06a;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 25px auto;
+  color: #8d929f;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.cta {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #82e778, #49bd55);
+  color: #071007;
+  text-decoration: none;
+  font-weight: 1000;
+  box-shadow: 0 15px 40px rgba(91,220,91,.18);
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.stat,
+.card {
+  background: rgba(16,18,24,.92);
+  border: 1px solid #252831;
+  border-radius: 15px;
+}
+
+.stat {
+  padding: 21px;
+}
+
+.label {
+  color: #747987;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.value {
+  margin-top: 8px;
+  font-size: 23px;
+  font-weight: 950;
+}
+
+.green {
+  color: #6fe56b;
+}
+
+/* SECTIONS */
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 43px 0 16px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.muted {
+  color: #707684;
+}
+
+/* GAMES */
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  padding: 22px;
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #496d4b;
+}
+
+.game-icon {
+  height: 110px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle, #2c452e, #141a16);
+  font-size: 47px;
+}
+
+.game-name {
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.game-meta {
+  margin-top: 7px;
+  color: #747b88;
+  font-size: 13px;
+}
+
+.play {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  border: 0;
+  border-radius: 9px;
+  background: #191c23;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.play:hover {
+  background: #252932;
+}
+
+/* JACKPOT */
+
+.jackpot {
+  margin-top: 35px;
+  padding: 38px 20px;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid #384b38;
+  background:
+    radial-gradient(circle at center, #1d351f, #101410);
+}
+
+.jackpot h3 {
+  margin: 0;
+  color: #8a9c8a;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.amount {
+  margin: 10px;
+  font-size: clamp(38px, 7vw, 75px);
+  font-weight: 1000;
+  letter-spacing: -4px;
+  color: #75e76c;
+}
+
+/* LEADERBOARD */
+
+.leaderboard {
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 15px;
+  border-bottom: 1px solid #242730;
+  font-size: 14px;
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.username {
+  color: #a5aab6;
+}
+
+.profit {
+  color: #6de16a;
+  font-weight: 900;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 55px 20px;
+  text-align: center;
+  color: #555b67;
+  font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+
+  header {
+    padding: 0 18px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  main {
+    padding: 35px 16px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .games {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    letter-spacing: -4px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    SHIT<span>COIN</span>
+  </div>
+
+  <nav>
+    <a href="#">Casino</a>
+    <a href="#">Jackpot</a>
+    <a href="#">Leaderboard</a>
+    <a href="#">Rewards</a>
+  </nav>
+
+  <button class="wallet" onclick="fakeAction()">
+    Connect Wallet
+  </button>
+
+</header>
+
+
+<div class="ticker">
+
+  <span>$SHIT $420.69 <b class="up">▲ 69.42%</b></span>
+  <span>MARKET CAP $420.69B</span>
+  <span>LIQUIDITY $3.17</span>
+  <span>HOLDERS 69,420</span>
+  <span>DEGEN INDEX <b class="up">+9000%</b></span>
+  <span>DO NOT PANIC</span>
+
+</div>
+
+
+<main>
+
+  <section class="hero">
+
+    <div class="badge">
+      The coin nobody asked for
+    </div>
+
+    <h1>
+      BUY THE<br>
+      <span>SHIT.</span>
+    </h1>
+
+    <p>
+      Welcome to the world's least necessary decentralized
+      financial entertainment ecosystem. Powered by $SHIT,
+      questionable decisions and absolutely no useful technology.
+    </p>
+
+    <a
+      class="cta"
+      href="#"
+      onclick="fakeAction(); return false;"
+    >
+      BUY THE DIP
+    </a>
+
+  </section>
+
+
+  <section class="stats">
+
+    <div class="stat">
+      <div class="label">Shitcoin Price</div>
+      <div class="value">$420.69</div>
+    </div>
+
+    <div class="stat">
+      <div class="label">Market Cap</div>
+      <div class="value">$420.69B</div>
+    </div>
+
+    <div class="stat">
+      <div class="label">Holders</div>
+      <div class="value green">69,420</div>
+    </div>
+
+    <div class="stat">
+      <div class="label">Utility</div>
+      <div class="value">None</div>
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+    <h2>Shitcoin Casino</h2>
+    <span class="muted">Definitely normal</span>
+  </div>
+
+
+  <section class="games">
+
+    <div class="card">
+
+      <div class="game-icon">
+        💩
+      </div>
+
+      <div class="game-name">
+        Shit Slots
+      </div>
+
+      <div class="game-meta">
+        Win up to 10,000× your imaginary bag
+      </div>
+
+      <button class="play" onclick="fakeAction()">
+        SPIN THE SHIT
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="game-icon">
+        🚀
+      </div>
+
+      <div class="game-name">
+        Moon or Toilet
+      </div>
+
+      <div class="game-meta">
+        Current multiplier: 694.20×
+      </div>
+
+      <button class="play" onclick="fakeAction()">
+        SEND IT
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="game-icon">
+        🪙
+      </div>
+
+      <div class="game-name">
+        Shit Flip
+      </div>
+
+      <div class="game-meta">
+        50/50 odds. Probably.
+      </div>
+
+      <button class="play" onclick="fakeAction()">
+        FLIP $SHIT
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="jackpot">
+
+    <h3>
+      Progressive Shitpot
+    </h3>
+
+    <div class="amount" id="jackpot">
+      69,420,000 $SHIT
+    </div>
+
+    <div class="muted">
+      The biggest bag of shit on the internet.
+    </div>
+
+  </section>
+
+
+  <div class="section-title">
+
+    <h2>
+      Biggest Bagholders
+    </h2>
+
+    <span class="muted">
+      Live-ish
+    </span>
+
+  </div>
+
+
+  <section class="card leaderboard">
+
+    <div class="row">
+      <span class="username">
+        0xSH...6969
+      </span>
+
+      <span class="profit">
+        +420,000,000 $SHIT
+      </span>
+    </div>
+
+    <div class="row">
+      <span class="username">
+        0xDE...GEN
+      </span>
+
+      <span class="profit">
+        +69,420,000 $SHIT
+      </span>
+    </div>
+
+    <div class="row">
+      <span class="username">
+        0xRU...NIT
+      </span>
+
+      <span class="profit">
+        +4,200,000 $SHIT
+      </span>
+    </div>
+
+    <div class="row">
+      <span class="username">
+        0xBA...GOLD
+      </span>
+
+      <span class="profit">
+        +420,690 $SHIT
+      </span>
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  SHITCOIN © 2026 · Number One Gambling App 
+
+</footer>
+
+
+<script>
+
+function fakeAction() {
+  alert(
+    "TRANSACTION FAILED\n\n" +
+    "Error: insufficient $SHIT.\n\n" +
+    "Please acquire more shit."
+  );
+}
+
+
+// Fake jackpot animation
+
+setInterval(() => {
+
+  const jackpot =
+    document.getElementById("jackpot");
+
+  const current =
+    parseInt(
+      jackpot.textContent.replace(/\D/g, "")
+    );
+
+  const next =
+    current + Math.floor(Math.random() * 69420);
+
+  jackpot.textContent =
+    next.toLocaleString() + " $SHIT";
+
+}, 900);
+
+
+// Fake ticker movement
+
+setInterval(() => {
+
+  const ticker =
+    document.querySelector(".ticker");
+
+  ticker.style.transform =
+    `translateX(${Math.random() * 8 - 4}px)`;
+
+}, 700);
+
+</script>
+
+</body>
+</html>
